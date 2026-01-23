@@ -19,3 +19,5 @@ const user = {
 // Propriedade existe?
 // console.log(user.avatar);
 console.log(user.email);
+
+export {};

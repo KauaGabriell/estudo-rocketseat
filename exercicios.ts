@@ -71,6 +71,7 @@ function UnionTypes(elemento: string | number) {
 let numbers: number[] = [1, 2, 3, 4];
 function somaTudo(arrayNumbers: number[]) {
   const somaTotal = arrayNumbers.reduce((acc, numeros) => acc + numeros, 0);
+  return somaTotal;
 }
 
 // EXERCÍCIO 6: null e undefined
@@ -83,7 +84,7 @@ function somaTudo(arrayNumbers: number[]) {
 // SEU CÓDIGO AQUI:
 
 function ex06(element: string | null) {
-  if (typeof (element === null)) {
+  if (element === null) {
     return 'Nome não informado';
   } else {
     return `Olá ${element}`;

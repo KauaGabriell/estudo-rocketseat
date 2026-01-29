@@ -16,3 +16,5 @@ interface User {
 const newUser = { id: 1, nome: 'Peixe', idade: 21 };
 
 const updateUser: Partial<User> = { nome: 'Peixe' };
+
+export {}

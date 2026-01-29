@@ -84,7 +84,7 @@ function somaTudo(arrayNumbers: number[]) {
 // SEU CÓDIGO AQUI:
 
 function ex06(element: string | null) {
-  if (element === null) {
+  if (element === null) { 
     return 'Nome não informado';
   } else {
     return `Olá ${element}`;

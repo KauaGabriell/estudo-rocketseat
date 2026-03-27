@@ -1,10 +1,14 @@
-import express, { Request, Response } from "express"
+import express, { Request, Response } from 'express';
+import { knex } from './database/knex';
+const app = express();
+app.use(express.json());
 
-const app = express()
-app.use(express.json())
+app.post('/courses', async (request: Request, response: Response) => {
+  const { name, description } = request.body;
 
-app.get("/", async (request: Request, response: Response) => {
-  response.json({ message: "Hello World!" })
-})
+  await knex('courses').insert({ name, description });
 
-app.listen(3333, () => console.log(`Server is running on port 3333`))
+  response.status(201).json();
+});
+
+app.listen(3333, () => console.log(`Server is running on port 3333`));

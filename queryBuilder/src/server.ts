@@ -39,4 +39,21 @@ app.delete('/courses/:id', async (request: Request, response: Response) => {
   return response.status(200).json({ message: 'Curso Deletado com Sucesso' });
 });
 
+//Rotas course_module
+app.post('/courses_modules', async (request: Request, response: Response) => {
+  const { name, course_id } = request.body;
+
+  const course_module = await knex('course_modules')
+    .insert({ name, course_id })
+    .returning('*');
+
+  return response.status(201).json(course_module);
+});
+
+app.get('/courses_modules', async (request: Request, response: Response) => {
+  const courses = await knex('course_modules').select().orderBy('id', 'desc');
+
+  return response.status(200).json(courses);
+});
+
 app.listen(3333, () => console.log(`Server is running on port 3333`));

@@ -24,6 +24,16 @@ class QuestionsController {
   }
 
   async update(request: Request, response: Response) {
+    const { id } = request.params;
+    const { title, content } = request.body;
+    await prisma.question.update({
+      data: {
+        title,
+        content,
+      },
+      where: { id },
+    });
+
     return response.json();
   }
 
